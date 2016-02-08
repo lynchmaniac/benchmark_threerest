@@ -1,6 +1,9 @@
 {
   "name": "helloWorldArtistes",
   "version": "0.0.1",
+  "scripts": {
+    "start": "node ./dist/js/server.js"
+  },
   "private": true,
   "dependencies": {
     "body-parser": "~1.13.2",
