@@ -1,5 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+import Service from "./service";
+import Method from "./methods/method";
 
 // Database
 var mongo = require('mongodb');
