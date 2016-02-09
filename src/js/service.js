@@ -35,7 +35,7 @@ export default class Service {
                 let fct = target.prototype[Service.globalKey][attrib][Service.fctKey];
                 let router = Router();
                 router[attrib](target.prototype[Service.globalKey][attrib][Service.pathKey], (req, res, next) => {
-                  let p = new Promise((resolve) => { resolve(req.params||true); });
+                  let p = Promise.resolve(req.params||true);
                   if (fct.convertBefore) {
                     p = p.then((params)=> {
                       return fct.convertBefore(params);
@@ -43,8 +43,8 @@ export default class Service {
                       return fct.call(this, value, req, res, next);
                     });
                   } else {
-                    p = p.then(() => {
-                      return fct.call(this, req, res, next);
+                    p = p.then((params) => {
+                      return fct.call(this, params, req, res, next);
                     });
                   }
                   p.then((value) => {
