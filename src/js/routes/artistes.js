@@ -9,11 +9,13 @@ import Method from "../methods/method";
 export default class ServiceArtistes {
 
   @Method.get("/:id")
-  testGet(req, res) { //  testGet(req, res, next)
+  testGet(resolve, req, res) { //  testGet(req, res, next)
     var db = req.db;
     var collection = db.get('userlist');
+    console.log("docs 2 !!!");
     collection.find({},{},function(e,docs){
-        res.json(docs);
+        console.log("docs", docs);
+        resolve(docs);
     });
   }
 
