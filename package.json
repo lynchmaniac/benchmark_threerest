@@ -12,8 +12,7 @@
     "morgan": "~1.6.1",
     "serve-favicon": "~2.3.0",
     "monk": "https://github.com/vccabral/monk.git",
-    "mongodb": "~2.0.33",
-    "threerest": "https://github.com/wmoulin/threerest.git"
+    "mongodb": "~2.0.33"
   },
   "peerDependencies": {
     "mongodb": ">= 1.4"
