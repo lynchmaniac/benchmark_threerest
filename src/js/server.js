@@ -4,7 +4,8 @@ var bodyParser = require('body-parser');
 import Service from "./service";
 import Method from "./methods/method";
 import * as serviceLoader from"./service-loader";
-import serviceArtistes from"./routes/artistes";
+import * as services from"./routes/artistes";
+import {ServiceHelloWorld} from"./routes/artistes";
 
 // Database
 var mongo = require('mongodb');
@@ -26,14 +27,7 @@ app.use(function(req,res,next){
 });
 
 
-//app.use('/artistes', artistes);
+serviceLoader.loadService(app, new services.ServiceArtistes());
+serviceLoader.loadService(app, new services.ServiceHelloWorld());
 
-
-
-
-
-
-
-serviceLoader.loadService(app, new serviceArtistes());
-
-app.listen(3000, () => {console.log("Express start...");});
+app.listen(8080, () => {console.log("Express start...");});
