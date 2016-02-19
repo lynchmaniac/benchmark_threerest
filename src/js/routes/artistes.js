@@ -28,4 +28,51 @@ export class ServiceArtistes {
 
 
 
+  @Method.post("/post")
+  testPost(params, req) { //  testPost(req, res, next)
+    return new Promise((resolve) => {
+      
+      resolve("Bienvenue en POST !!!");
+      
+    });
+  }
+
+  @Method.put("/put")
+  testPut(params, req) { //  testPut(req, res, next)
+    return new Promise((resolve) => {
+      
+      resolve("Bienvenue en PUT !!!");
+      
+    });
+  }
+
+  @Method.delete("/delete")
+  testDelete(params, req) { //  testDelete(req, res, next)
+    return new Promise((resolve) => {
+      
+      resolve("Bienvenue en DELETE !!!");
+      
+    });
+  }
+
+  @Method.patch("/patch")
+  testPatch(params, req) { //  testPatch(req, res, next)
+    return new Promise((resolve) => {
+      
+      resolve("Bienvenue en PATCH !!!");
+      
+    });
+  }
 };
+
+@Service.path("/timer")
+export class ServiceTimer {
+   @Method.get("/")
+  testGet(params, req) { //  testGet(req, res, next)
+    return new Promise((resolve) => {
+      resolve("helloWorld !!!");
+    });
+  }
+};
+
+
